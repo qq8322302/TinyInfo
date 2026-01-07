@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品资料中心</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+
+        /* 标题样式 */
+        .header {
+            text-align: center;
+            padding: 20px;
+            background-color: #f5f5f5;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+        }
+
+        /* 分类样式 */
+        .category {
+            text-align: center;
+            padding: 15px;
+            background-color: #3498db;
+            color: white;
+            font-size: 1.5rem;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+
+        /* 商品容器 */
+        .product-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* 商品列表 */
+        .product-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        /* 商品项 */
+        .product-item {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+
+        /* 商品内容区域 */
+        .product-content {
+            display: flex;
+            flex-direction: column;
+            padding: 15px;
+        }
+
+        /* 移动端：图片和文字垂直排列 */
+        @media (min-width: 768px) {
+            .product-content {
+                flex-direction: row;
+            }
+        }
+
+        /* 图片区域 */
+        .product-image {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 15px;
+        }
+
+        /* 移动端：图片区域样式 */
+        @media (min-width: 768px) {
+            .product-image {
+                width: 240px;
+                min-width: 240px;
+                padding: 15px;
+            }
+        }
+
+        .product-image img {
+            width: 240px;
+            height: 240px;
+            object-fit: cover;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* 文字区域 */
+        .product-text {
+            flex: 1;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* 商品名称 */
+        .product-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        /* 移动端：商品名称字体大小 */
+        @media (min-width: 768px) {
+            .product-name {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* 商品简介 */
+        .product-description {
+            font-size: 1rem;
+            color: #7f8c8d;
+            line-height: 1.6;
+        }
+
+        /* 移动端：商品简介字体大小 */
+        @media (min-width: 768px) {
+            .product-description {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* 超链接样式 */
+        .product-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        /* 响应式网格布局 */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        /* 移动端优化 */
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .category {
+                font-size: 1.2rem;
+            }
+            
+            .product-name {
+                font-size: 1.3rem;
+            }
+            
+            .product-description {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 页面标题 -->
+    <div class="header">
+        <h1>商品资料中心</h1>
+    </div>
+
+    <!-- 第一个分类 -->
+    <div class="category">
+        <h2>联想Tiny小主机系列</h2>
+    </div>
+    
+    <div class="product-container">
+        <div class="product-list">
+
+            <div class="product-item">
+                <a href="tiny/T5-X8-4xM2.html" class="product-link">
+                    <div class="product-content">
+                        <div class="product-image">
+                            <img src="image/T5-X8-4xM2.png" alt="T5-X8-4xM2">
+                        </div>
+                        <div class="product-text">
+                            <h3 class="product-name">联想M920X M920Q P330 NEC8 Tiny5 PCIE扩展卡 万兆网卡 NAS 硬盘</h3>
+                            <p class="product-description">Tiny5系列可用的扩展卡，可扩展1个X8+4个M.2接口。 安装视频、刷机工具，请点击进去。</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="product-item">
+                <a href="tiny/P340T-X8M2M2TF.html" class="product-link">
+                    <div class="product-content">
+                        <div class="product-image">
+                            <img src="image/P340T-X8M2M2TF.jpg" alt="P340T-X8M2M2TF">
+                        </div>
+                        <div class="product-text">
+                            <h3 class="product-name">P340 Tiny6 PCIE转接卡 扩展拆分卡 全闪NAS 万兆网卡</h3>
+                            <p class="product-description">P340Tiny专用的扩展卡，可扩展1个X8+2个NVME协议M.2+1个TF卡接口。 安装教程，请点击进去。</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="product-item">
+                <a href="tiny/P350T-X8-4xM2.html" class="product-link">
+                    <div class="product-content">
+                        <div class="product-image">
+                            <img src="image/P350T-X8-4xM2.jpg" alt="P350T-X8-4xM2">
+                        </div>
+                        <div class="product-text">
+                            <h3 class="product-name">P350 转接卡 扩展卡 7盘全闪NAS 万兆扩展 联想Tiny7 PCIE扩展板</h3>
+                            <p class="product-description">P350Tiny专用的扩展卡，可扩展1个X8+3个NVME协议M.2+1个SATA协议M.2接口。 安装教程，请点击进去。</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="product-item">
+                <a href="tiny/P360U-X8X8.html" class="product-link">
+                    <div class="product-content">
+                        <div class="product-image">
+                            <img src="image/P360U-X8X8.jpg" alt="P360U-X8X8">
+                        </div>
+                        <div class="product-text">
+                            <h3 class="product-name">P360 Ultra PCIe显卡转接卡 拆分2个x8 要短接CPU触点 仅PCIE3.0</h3>
+                            <p class="product-description">P3/P360 Ultra专用的扩展卡，可扩展2个PCIE3.0X8接口。 安装教程，请点击进去。</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+            
+			<div class="product-item">
+                <a href="tiny/Wlan2M2.html" class="product-link">
+                    <div class="product-content">
+                        <div class="product-image">
+                            <img src="image/Wlan2M2.jpg" alt="Wlan转M2+TF">
+                        </div>
+                        <div class="product-text">
+                            <h3 class="product-name">Wlan转M2+TF</h3>
+                            <p class="product-description">联想Tiny系列通用的WLAN扩展卡，可以扩展出1个2230的M.2插槽和1个TF插槽</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+			
+			<div class="product-item">
+                <a href="tiny/T4-X4M2SATA.html" class="product-link">
+                    <div class="product-content">
+                        <div class="product-image">
+                            <img src="image/T4-X4M2SATA.jpg" alt="T4-X4M2SATA">
+                        </div>
+                        <div class="product-text">
+                            <h3 class="product-name">T4-X4M2SATA 需要硬改主板拆分</h3>
+                            <p class="product-description">联想Tiny4 M910X专用扩展卡，可扩展出1个PCIE3.0x4+1个M.2+1个NGFF SATA插槽。</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+			
+			<div class="product-item">
+                <a href="tiny/T5-X4M2M2.html" class="product-link">
+                    <div class="product-content">
+                        <div class="product-image">
+                            <img src="image/T5-X4M2M2.jpg" alt="T5-X4M2M2">
+                        </div>
+                        <div class="product-text">
+                            <h3 class="product-name">T5-X4M2M2 需要硬改主板拆分</h3>
+                            <p class="product-description">联想Tiny5 M920X M920Q P330扩展卡，可扩展出1个PCIE3.0x4+2个M.2插槽。</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+			
+			<div class="product-item">
+                <a href="tiny/T5-X8M2SATA.html" class="product-link">
+                    <div class="product-content">
+                        <div class="product-image">
+                            <img src="image/T5-X8M2SATA.jpg" alt="T5-X8M2SATA">
+                        </div>
+                        <div class="product-text">
+                            <h3 class="product-name">T5-X8M2SATA 无需改主板 插上即用</h3>
+                            <p class="product-description">联想Tiny5 M920X M920Q P330 M720Q NEC8扩展卡，可扩展出1个PCIE3.0x8+1个M.2+1个NGFF SATA插槽。</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- 第二个分类 -->
+    <div class="category">
+        <h2>UPS-搭档</h2>
+    </div>
+    
+    <div class="product-container">
+        <div class="product-list">
+        
+            <div class="product-item">
+                <a href="ups-partner/ups-partner.html" class="product-link">
+                    <div class="product-content">
+                        <div class="product-image">
+                            <img src="image/ups-partner.jpg" alt="ups-partner">
+                        </div>
+                        <div class="product-text">
+                            <h3 class="product-name">Mini UPS搭档 NAS断电自动关机 DIY UPS Partner 不间断供电电源</h3>
+                            <p class="product-description">UPS搭档，专为没有通信功能的UPS，提供模拟通信功能，当市电断开时，及时通知系统关机。</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+            
+        </div>
+    </div>
+
+
+
+
+    
+    
+</body>
+</html>
