@@ -66,18 +66,57 @@
                 <div class="name-column">飞牛NAS</div>
                 <div class="description-column">免驱，如果不显示则需要重启一下系统。</div>
             </div>
-            
             <div class="content-row">
-                <div class="name-column">群晖/绿联/威联通/极空间</div>
-                <div class="description-column">免驱，如果不显示则需要重启一下系统。</div>
+                <div class="name-column">威联通</div>
+                <div class="description-column">
+                    <p>免驱，转到 控制台 > 系统 > 外接设备 > UPS 进行配置。</p>
+                    <p>建议设置为 电源断电达指定时间后关闭服务器。</p>
+                    <p><a target="_blank" href="https://docs.qnap.com/operating-system/qts/5.2.x/zh-cn/%E4%B8%8D%E9%97%B4%E6%96%AD%E7%94%B5%E6%BA%90-ups-20AC99C1.html">点此查看官网说明书</a></p>
+                </div>
             </div>
-            
+            <div class="content-row">
+                <div class="name-column">群晖</div>
+                <div class="description-column">
+                    <p>免驱，转到 控制面板 > 硬件和电源 > 不断电系统 进行配置。</p>
+                    <p>进入待机模式之前的时间，建议设置为 自定义时间3分钟。</p>
+                    <p><a target="_blank" href="https://kb.synology.cn/zh-cn/DSM/help/DSM/AdminCenter/system_hardware_ups?version=7">点此查看官网说明书</a></p>
+                    <p>特别说明：群晖不会自动关机，只会进入 待机模式(安全模式)。 此时系统存储卷已卸载，磁盘空转，磁头归位，这时断电无任何影响。</p>
+                    <p>如若想不进入待机而是真正的关机，则需要命令配置。 网络上的方案：   
+                        <a target="_blank" href="https://baijiahao.baidu.com/s?id=1840921294944588092">文章一</a>  
+                        <a target="_blank" href="https://www.wamano.com/2025/4678.html">文章二</a>  
+                    </p>
+
+                </div>
+            </div>
+            <div class="content-row">
+                <div class="name-column">绿联</div>
+                <div class="description-column">
+                    <p>免驱，前往 控制面板 > 硬件与电源 > 不断电系统 进行配置。</p>
+                    <p>建议设置为 自动关机 自定义时间3分钟。</p>
+                    <p><a target="_blank" href="https://support.ugnas.com/knowledgecenter/#/detail/eyJpZCI6MTMyOCwidHlwZSI6InRhZzAwMiIsImxhbmd1YWdlIjoiemgtQ04iLCJjbGllbnRUeXBlIjoiUEMiLCJhcnRpY2xlSW5mb0lkIjo0NDIsImFydGljbGVWZXJzaW9uIjoiMS4wIiwicGF0aENvZGUiOiIifQ==">点此查看官网说明书</a></p>
+                </div>
+            </div>
+            <div class="content-row">
+                <div class="name-column">极空间</div>
+                <div class="description-column">
+                    <p>免驱，前往 系统设置 > UPS管理 进行配置。</p>
+                    <p>建议设置为 外部断电后1分钟。</p>
+                    <p><a target="_blank" href="https://www.zspace.cn/help/?articleId=100196">点此查看官网说明书</a></p>
+                </div>
+            </div>
+            <div class="content-row">
+                <div class="name-column">铁威马</div>
+                <div class="description-column">
+                    <p>免驱，前往 控制面板 > 硬件与电源 > UPS 进行配置。</p>
+                    <p>建议设置为 自定义时间3分钟。</p>
+                    <p><a target="_blank" href="https://help.terra-master.com/TOS/view/?lang/zh-cn/flag/UPS">点此查看官网说明书</a></p>
+                    <p>特别说明：铁威马和群晖一样，不会自动关机，只会进入 待机模式(安全模式)。 此时系统存储卷已卸载，磁盘空转，磁头归位，这时断电无任何影响。</p>
+                </div>
+            </div>
             <div class="content-row">
                 <div class="name-column">苹果macOS</div>
-                <div class="description-column">免驱，需要在设置--节能--UPS选项中开启</div>
+                <div class="description-column">免驱，需要在 设置--节能--UPS选项中开启</div>
             </div>
-            
-            
         </div>
 
         <div class="category">
