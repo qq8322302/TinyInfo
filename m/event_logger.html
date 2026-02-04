@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件记录器</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f0f0;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+        
+        .event-selector {
+            width: 100%;
+            padding: 15px;
+            font-size: 18px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+        }
+        
+        .record-btn {
+            width: 100%;
+            padding: 20px;
+            font-size: 48px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+        
+        .record-btn:hover {
+            background-color: #45a049;
+        }
+        
+        .view-btn {
+            width: 100%;
+            padding: 15px;
+            font-size: 18px;
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        
+        .view-btn:hover {
+            background-color: #1976D2;
+        }
+        
+        .history-container {
+            margin-top: 30px;
+            display: none;
+        }
+        
+        .history-title {
+            text-align: center;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        .history-list {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        
+        .history-item {
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .history-item:last-child {
+            border-bottom: none;
+        }
+        
+        .event-name {
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .event-time {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .clear-btn {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #f44336;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+        
+        .clear-btn:hover {
+            background-color: #d32f2f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>事件记录器</h1>
+        
+        <select id="eventSelector" class="event-selector">
+            <option value="工作">工作</option>
+            <option value="休息">休息</option>
+            <option value="运动">运动</option>
+            <option value="学习">学习</option>
+            <option value="娱乐">娱乐</option>
+        </select>
+        
+        <button id="recordBtn" class="record-btn">记录事件</button>
+        
+        <button id="viewBtn" class="view-btn">查看历史记录</button>
+        
+        <div id="historyContainer" class="history-container">
+            <h2 class="history-title">历史记录</h2>
+            <div id="historyList" class="history-list"></div>
+            <button id="clearBtn" class="clear-btn">清空所有记录</button>
+        </div>
+    </div>
+
+    <script>
+        // 页面加载完成后初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            const recordBtn = document.getElementById('recordBtn');
+            const viewBtn = document.getElementById('viewBtn');
+            const eventSelector = document.getElementById('eventSelector');
+            const historyContainer = document.getElementById('historyContainer');
+            const historyList = document.getElementById('historyList');
+            const clearBtn = document.getElementById('clearBtn');
+            
+            // 记录事件功能
+            recordBtn.addEventListener('click', function() {
+                const selectedEvent = eventSelector.value;
+                const currentTime = new Date().toLocaleString('zh-CN');
+                
+                // 获取现有记录
+                let records = JSON.parse(localStorage.getItem('eventRecords')) || [];
+                
+                // 添加新记录
+                records.push({
+                    event: selectedEvent,
+                    time: currentTime
+                });
+                
+                // 保存到localStorage
+                localStorage.setItem('eventRecords', JSON.stringify(records));
+                
+                alert(`已记录：${selectedEvent} - ${currentTime}`);
+            });
+            
+            // 查看历史记录功能
+            viewBtn.addEventListener('click', function() {
+                historyContainer.style.display = 'block';
+                loadHistory();
+            });
+            
+            // 清空记录功能
+            clearBtn.addEventListener('click', function() {
+                if(confirm('确定要清空所有记录吗？')) {
+                    localStorage.removeItem('eventRecords');
+                    historyList.innerHTML = '';
+                    historyContainer.style.display = 'none';
+                }
+            });
+            
+            // 加载历史记录
+            function loadHistory() {
+                const records = JSON.parse(localStorage.getItem('eventRecords')) || [];
+                historyList.innerHTML = '';
+                
+                if(records.length === 0) {
+                    historyList.innerHTML = '<p style="text-align: center; color: #666;">暂无记录</p>';
+                    return;
+                }
+                
+                // 反向显示，最新的在前面
+                records.reverse().forEach(record => {
+                    const item = document.createElement('div');
+                    item.className = 'history-item';
+                    item.innerHTML = `
+                        <span class="event-name">${record.event}</span>
+                        <span class="event-time">${record.time}</span>
+                    `;
+                    historyList.appendChild(item);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
